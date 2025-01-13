@@ -24,7 +24,7 @@ paste("Variable var2", var2)
 
 num1 = 54
 num2 = 78
-num3 = 78
+num3 = 98
 
 suma = num1 + num2 + num3
-paste("La suma de estos numersos ", num1, num2, num3, " es :", suma)
+paste("La suma de estos numeros ", num1, ",", num2, ",", num3, " es :", suma)
