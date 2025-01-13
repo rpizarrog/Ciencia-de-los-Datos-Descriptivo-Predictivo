@@ -20,7 +20,7 @@ paste("Variable var2", var2)
 [1] "Variable var2 56"
 
 
-# El operador <- es una asignación auqneu se puede utilizaar el operador = para mayor comodidad
+# El operador <- es una asignación aunque se puede utilizaar el operador = para mayor comodidad
 
 num1 = 54
 num2 = 78
