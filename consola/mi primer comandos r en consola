@@ -1,0 +1,20 @@
+print ('Hola mundo')
+[1] "Hola mundo"
+print ("Mi nombre es Ruben Pizarro Gurrola")
+[1] "Mi nombre es Ruben Pizarro Gurrola"
+var1 <- 34
+var2 <- 56
+var1
+[1] 34
+var2
+[1] 56
+print (var1)
+[1] 34
+print (var2)
+[1] 56
+paste("Variable var1", var1)
+[1] "Variable var1 34"
+paste("Variable var1", var1)
+[1] "Variable var1 34"
+paste("Variable var2", var2)
+[1] "Variable var2 56"
