@@ -18,3 +18,13 @@ paste("Variable var1", var1)
 [1] "Variable var1 34"
 paste("Variable var2", var2)
 [1] "Variable var2 56"
+
+
+# El operador <- es una asignación auqneu se puede utilizaar el operador = para mayor comodidad
+
+num1 = 54
+num2 = 78
+num3 = 78
+
+suma = num1 + num2 + num3
+paste("La suma de estos numersos ", num1, num2, num3, " es :", suma)
