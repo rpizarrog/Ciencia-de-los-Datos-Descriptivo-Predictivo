@@ -1,0 +1,11 @@
+﻿cons,nombres,edades,feliz,economia,estatura,peso,genero
+1,Oscar,24,SI,TRUE,170,60.5,M
+2,Paty,28,NO,FALSE,176,78.6,F
+3,Lourdes,30,SI,TRUE,180.9,90.4,F
+4,Olga,32,NO,FALSE,190,65,F
+5,Salma,48,SI,FALSE,167,6,F
+6,Lalo,55,SI,FALSE,178.5,70.5,M
+7,Lucy,54,NO,TRUE,186.9,100.9,F
+8,Brenda,76,NO,FALSE,161.7,65.89,F
+9,Oswaldo,64,SI,TRUE,170,45.9,M
+10,Sergio,32,SI,TRUE,175.5,65.87,M
