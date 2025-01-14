@@ -14,4 +14,4 @@ print ("Ya cargaste librerias")
 datos_aguacate <- read_csv("/cloud/project/datos/avocado.csv")
 
 # Cargar desde una url de internet
-datos_aguacate_url = read_csv("https://raw.githubusercontent.com/rpizarrog/Ciencia-de-los-Datos-Descriptivo-Predictivo/refs/heads/main/datos/avocado.csv")
+datos_aguacate_url = read.csv("https://raw.githubusercontent.com/rpizarrog/Ciencia-de-los-Datos-Descriptivo-Predictivo/refs/heads/main/datos/avocado.csv")
