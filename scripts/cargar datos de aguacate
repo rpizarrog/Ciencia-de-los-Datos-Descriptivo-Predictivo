@@ -1,0 +1,17 @@
+# Cargar datos de aguacate
+
+
+# 1 Cargar librerías
+
+# install.packages("readr")
+library(readr)
+
+print ("Ya cargaste librerias")
+# 2 Cargar los datos
+
+# Cargar datos de manera local
+
+datos_aguacate <- read_csv("/cloud/project/datos/avocado.csv")
+
+# Cargar desde una url de internet
+datos_aguacate_url = read_csv("https://raw.githubusercontent.com/rpizarrog/Ciencia-de-los-Datos-Descriptivo-Predictivo/refs/heads/main/datos/avocado.csv")
