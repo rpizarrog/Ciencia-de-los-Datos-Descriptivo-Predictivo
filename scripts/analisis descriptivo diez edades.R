@@ -32,11 +32,22 @@ paste("El Rango Intercuartilo es: ", RI)
 
 # Nos falta la desviación estándar
 varianza <- var(edades)
-ds <- sd(edades)
+ds <- sd(edades) # sd es la funci[on en ingles y ds es la variable que yo pouse en espaniol
 
 paste("La varianza es: ", varianza)
 paste("La desv. std es: ", ds)
 
+
+# Visualizar ...
+
+
+plot(edades, 
+     main = "Las edades",
+     sub = paste("Me", round(media, 2), "; Mediana", round(mediana, 2),
+                 "; ds", round(ds, 2), "; Max", round(maximo, 2), "; Min", round(minimo, 2),
+                 ";Cuartiles", round(q1, 2), ", ", round(q2, 2), ", ", round(q3, 2)),
+     xlab = "Valores",
+     ylab = "Frecuencia")
 
 
 
