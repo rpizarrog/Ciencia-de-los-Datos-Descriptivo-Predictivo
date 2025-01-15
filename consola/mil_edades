@@ -1,4 +1,4 @@
-mil_edades <- rnorm(n = 1000, mean = 38.1, sd = 14.04)
+mil_edades <- rnorm(n = 100, mean = 50, sd = 15)
 hist(mil_edades, breaks = 10,
      main = "Las edades",
      sub = paste("Me", round(media, 2), "; Mediana", round(mediana, 2),
