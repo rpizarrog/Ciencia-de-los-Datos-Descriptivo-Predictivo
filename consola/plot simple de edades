@@ -1,0 +1,7 @@
+plot(edades, 
+     main = "Las edades",
+     sub = paste("Me", media, "Mediana", mediana,
+                 "ds", ds, "Max", maximo, "Min", minimo,
+                 "Cuartiles", q1, q2, q3),
+     xlab = "Valores",
+     ylab = "Frecuencia")
