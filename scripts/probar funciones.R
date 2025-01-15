@@ -31,13 +31,13 @@ f_descriptivos <- function(numeros) {
 # un conjunto de datos numéricos
 f_histograma <- function (datos, titulo) {
   # Estadisticos con funciones específicas
-  media <- mean(edades)
-  mediana <- median(edades)
-  maximo <- max(edades)
-  minimo <- min(edades)
-  q1 <- quantile(edades, 0.25)
-  q2 <- quantile(edades, 0.50)
-  q3 <- quantile(edades, 0.75)
+  media <- mean(datos)
+  mediana <- median(datos)
+  maximo <- max(datos)
+  minimo <- min(datos)
+  q1 <- quantile(datos, 0.25)
+  q2 <- quantile(datos, 0.50)
+  q3 <- quantile(datos, 0.75)
   
   RI <- q3 - q1
   
@@ -46,7 +46,7 @@ f_histograma <- function (datos, titulo) {
   # concatenar poner varios valores en la misma instrucción, juntar elementos
 
   # Nos falta la desviación estándar
-  ds <- sd(edades) # sd es la funci[on en ingles y ds es la variable que yo pouse en espaniol
+  ds <- sd(datos) # sd es la funci[on en ingles y ds es la variable que yo pouse en espaniol
   
   hist(datos, 
        main =titulo,
@@ -54,5 +54,6 @@ f_histograma <- function (datos, titulo) {
                    "; ds", round(ds, 2), "; Max", round(maximo, 2), "; Min", round(minimo, 2),
                    ";Cuartiles", round(q1, 2), ", ", round(q2, 2), ", ", round(q3, 2)),
        xlab = "Xs",
-       ylab = "Edades")
+       ylab = "Frecuencia")
 }
+
