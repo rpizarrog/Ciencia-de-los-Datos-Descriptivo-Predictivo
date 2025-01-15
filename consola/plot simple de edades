@@ -2,6 +2,6 @@ plot(edades,
      main = "Las edades",
      sub = paste("Me", round(media, 2), "; Mediana", round(mediana, 2),
                  "; ds", round(ds, 2), "; Max", round(maximo, 2), "; Min", round(minimo, 2),
-                 "Cuartiles", round(q1, 2), round(q2, 2), round(q3, 2)),
+                 ";Cuartiles", round(q1, 2), ", ", round(q2, 2), ", ", round(q3, 2)),
      xlab = "Valores",
      ylab = "Frecuencia")
