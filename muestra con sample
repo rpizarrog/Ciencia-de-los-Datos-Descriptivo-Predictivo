@@ -1,6 +1,0 @@
-# Crea aleatoriamente una muestra de 10 valores de numeros entre 10 y 100
-
-> dinero <- sample(10:100, size = 10)
-> dinero
-
-
