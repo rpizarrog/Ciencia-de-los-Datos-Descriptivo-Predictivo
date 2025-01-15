@@ -58,7 +58,7 @@ f_histograma <- function (datos, titulo) {
 }
 
 
-f_histrograma_ggplot <- function(valores, titulo) {
+f_histograma_ggplot <- function(valores, titulo) {
   
   # Calcular el binwidth para 10 cortes
   datos <- data.frame(columna = valores)
