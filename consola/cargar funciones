@@ -1,0 +1,5 @@
+# Cargar un archivo que contiene funciones
+
+source("https://raw.githubusercontent.com/rpizarrog/Ciencia-de-los-Datos-Descriptivo-Predictivo/refs/heads/main/scripts/probar%20funciones.R")
+edades <- rnorm(n = 500, mean = 40, sd = 1.0)
+f_histograma(edades, "edades de personas")
