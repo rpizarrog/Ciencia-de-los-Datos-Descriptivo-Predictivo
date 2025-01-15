@@ -46,7 +46,7 @@ f_histograma <- function (datos, titulo) {
   # concatenar poner varios valores en la misma instrucción, juntar elementos
 
   # Nos falta la desviación estándar
-  ds <- sd(datos) # sd es la funci[on en ingles y ds es la variable que yo pouse en espaniol
+  ds <- sd(datos) # sd es la función en inglçs y ds es la variable que yo pouse en espaniol
   
   hist(datos, 
        main =titulo,
@@ -56,4 +56,3 @@ f_histograma <- function (datos, titulo) {
        xlab = "Xs",
        ylab = "Frecuencia")
 }
-
