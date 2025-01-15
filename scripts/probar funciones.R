@@ -46,7 +46,7 @@ f_histograma <- function (datos, titulo) {
   # concatenar poner varios valores en la misma instrucción, juntar elementos
 
   # Nos falta la desviación estándar
-  ds <- sd(datos) # sd es la función en inglçs y ds es la variable que yo pouse en espaniol
+  ds <- sd(datos[1]) # sd es la función en inglçs y ds es la variable que yo pouse en espaniol
   
   hist(datos, 
        main =titulo,
@@ -56,3 +56,53 @@ f_histograma <- function (datos, titulo) {
        xlab = "Xs",
        ylab = "Frecuencia")
 }
+
+
+f_histrograma_ggplot <- function(valores, titulo) {
+  
+  # Calcular el binwidth para 10 cortes
+  datos <- data.frame(columna = valores)
+  
+  # Estadisticos con funciones específicas
+  media <- mean(datos$columna)
+  mediana <- median(datos$columna)
+  maximo <- max(datos$columna)
+  minimo <- min(datos$columna)
+  q1 <- quantile(datos$columna, 0.25)
+  q2 <- quantile(datos$columna, 0.50)
+  q3 <- quantile(datos$columna, 0.75)
+  
+  RI <- q3 - q1
+  
+  # Nos falta la desviación estándar
+  ds <- sd(datos$columna) # sd es la función en inglçs y ds es la variable que yo pouse en espaniol
+  
+  cortes <- (max(datos$columna, na.rm = TRUE) - min(datos$columna, na.rm = TRUE)) / 10
+  
+  # Crear el histograma con ggplot2
+  ggplot(datos, aes(x = columna)) +
+    geom_histogram(aes(y = ..density..), binwidth = cortes, fill = "skyblue", color = "black", alpha = 0.7) + # Histograma con densidad
+    geom_density(color = "red", size = 1) + # Línea de densidad
+    geom_vline(aes(xintercept = media, color = "Media"), linetype = "dashed", size = 1) + # Línea de la media
+    geom_vline(aes(xintercept = media + ds, color = "Media + SD"), linetype = "dotted", linewidth = 1) + # Media + Desviación estándar
+    geom_vline(aes(xintercept = media - ds, color = "Media - SD"), linetype = "dotted", size = 1) + # Media - Desviación estándar
+    scale_color_manual(
+      values = c("Media" = "green", "Media + SD" = "blue", "Media - SD" = "blue"),
+      name = "Leyenda",
+      labels = c(
+        paste("Media =", round(media, 2)),
+        paste("Media + SD =", round(media + ds, 2)),
+        paste("Media - SD =", round(media - ds, 2))
+      )
+    ) +
+    labs(
+      title = titulo,
+      x = "Precio",
+      y = "Frecuencia"
+    ) +
+    theme_minimal() # Tema limpio
+}
+
+
+
+
