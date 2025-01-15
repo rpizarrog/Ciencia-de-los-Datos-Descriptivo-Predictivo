@@ -46,9 +46,14 @@ f_histograma <- function (datos, titulo) {
   # concatenar poner varios valores en la misma instrucción, juntar elementos
 
   # Nos falta la desviación estándar
-  ds <- sd(datos[1]) # sd es la función en inglçs y ds es la variable que yo pouse en espaniol
+  ds <- sd(datos) # sd es la función en inglçs y ds es la variable que yo pouse en espaniol
   
-  hist(datos, 
+  # Calcular el número de intervalos usando la fórmula de Sturges
+  n <- length(datos) # Número de observaciones
+  clases <- ceiling(1 + log2(n)) # Número de clases según Sturges
+  
+  
+  hist(datos, breaks = clases,
        main =titulo,
        sub = paste("Me", round(media, 2), "; Mediana", round(mediana, 2),
                    "; ds", round(ds, 2), "; Max", round(maximo, 2), "; Min", round(minimo, 2),
@@ -77,11 +82,13 @@ f_histograma_ggplot <- function(valores, titulo) {
   # Nos falta la desviación estándar
   ds <- sd(datos$columna) # sd es la función en inglçs y ds es la variable que yo pouse en espaniol
   
-  cortes <- (max(datos$columna, na.rm = TRUE) - min(datos$columna, na.rm = TRUE)) / 10
+  # Calcular el número de intervalos usando la fórmula de Sturges
+  n <- nrow(datos) # Número de observaciones
+  clases <- ceiling(1 + log2(n)) # Número de clases según Sturges
   
   # Crear el histograma con ggplot2
   ggplot(datos, aes(x = columna)) +
-    geom_histogram(aes(y = ..density..), binwidth = cortes, fill = "skyblue", color = "black", alpha = 0.7) + # Histograma con densidad
+    geom_histogram(aes(y = ..density..), bins = clases, fill = "skyblue", color = "black", alpha = 0.7) + # Histograma con densidad
     geom_density(color = "red", size = 1) + # Línea de densidad
     geom_vline(aes(xintercept = media, color = "Media"), linetype = "dashed", size = 1) + # Línea de la media
     geom_vline(aes(xintercept = media + ds, color = "Media + SD"), linetype = "dotted", linewidth = 1) + # Media + Desviación estándar
