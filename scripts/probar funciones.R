@@ -89,7 +89,7 @@ f_histograma_ggplot <- function(valores, titulo) {
   # Crear el histograma con ggplot2
   ggplot(datos, aes(x = columna)) +
     geom_histogram(aes(y = ..density..), bins = clases, fill = "skyblue", color = "black", alpha = 0.7) + # Histograma con densidad
-    geom_density(color = "red", size = 1) + # Línea de densidad
+    geom_density(color = "red", linewidth = 1) + # Línea de densidad
     geom_vline(aes(xintercept = media, color = "Media"), linetype = "dashed", size = 1) + # Línea de la media
     geom_vline(aes(xintercept = media + ds, color = "Media + SD"), linetype = "dotted", linewidth = 1) + # Media + Desviación estándar
     geom_vline(aes(xintercept = media - ds, color = "Media - SD"), linetype = "dotted", size = 1) + # Media - Desviación estándar
