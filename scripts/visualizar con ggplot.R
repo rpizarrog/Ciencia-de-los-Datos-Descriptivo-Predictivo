@@ -43,5 +43,11 @@ print ("Los Cuartiels, RI y limites")
 RI
 l_inferior
 l_superior
+
+# cuáles valores son los atípicos?
+# qué hacemos con esos atípicos?
+# limpiarlos
+atipicos <- edades[edades < l_inferior | edades > l_superior]
+atipicos
     
     
