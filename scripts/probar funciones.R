@@ -27,6 +27,11 @@ f_descriptivos <- function(numeros) {
   return (summary(numeros))
 }
 
+# Función para generar un color aleatorio
+f_color_aleatorio <- function() {
+  grDevices::rgb(runif(1), runif(1), runif(1))
+}
+
 
 # Función que devuelve los estadísticos más populares
 f_estadisticos <- function(datos) {
@@ -221,6 +226,40 @@ f_diagcaja_ggplot <- function(valores, titulo) {
 
 
 
+
+
+# función para boxplot con ggplot de un valor numérico en función de un variable categórica
+f_boxplotv1v2 <- function (v1, v2, titulo, modo, color=FALSE) {
+  
+  if (color == TRUE) {
+    color_aleatorio <- f_color_aleatorio()
+  } else{
+    color_aleatorio = "gray"
+  }
+
+  # Crear el boxplot del precio en función del tipo
+  if (modo == 'H') {
+    ggplot(datos, aes(x = v1, y = v2)) +
+      geom_boxplot(fill = color_aleatorio, color = "black", alpha = 0.7) +
+      labs(
+        title = titulo,
+        x = "valores",
+        y = "grupos"
+      ) +
+      theme_minimal()
+    
+  } else {
+    ggplot(datos, aes(x = v2, y = v1)) +
+      geom_boxplot(fill = color_aleatorio, color = "black", alpha = 0.7) +
+      labs(
+        title = titulo,
+        x = "grupo",
+        y = "valores"
+      ) +
+      theme_minimal()
+  }
+
+}
 
 
 
