@@ -146,10 +146,77 @@ f_histograma_ggplot <- function(valores, titulo) {
 }
 
 # Diagrama de caja con boxplot() horizontal
-f_diacaja <- function() {
+f_diagcaja <- function(datos, titulo) {
+  # Crear el diagrama de caja con título y subtítulo
+  # Estadisticos 
+  estadisticos <- f_estadisticos(datos)
+  media <- estadisticos$media
+  mediana <- estadisticos$mediana
+  maximo <- estadisticos$maximo
+  minimo <- estadisticos$minimo
+  q1 <- estadisticos$q1
+  q2 <- estadisticos$q2
+  q3 <- estadisticos$q3
   
-  # Pendiente
-  print ("Diagrama de caja")
+  RI <- estadisticos$RI
+  
+  ds <- estadisticos$ds
+  
+  n <- estadisticos$n # Número de observaciones
+  clases <- estadisticos$clases # Número de clases según Sturges
+  
+  subtitulo = paste("Me", round(media, 2), "; Mediana", round(mediana, 2),
+                    "; ds", round(ds, 2), "; Max", round(maximo, 2), "; Min", round(minimo, 2),
+                    "; Qs", round(q1, 2), ", ", round(q2, 2), ", ", round(q3, 2),
+                    "; RI", round(RI, 2))
+  boxplot(datos,
+          main = paste("Distribucion de ", titulo),
+            sub = subtitulo,
+          xlab = "X's", # Etiqueta del eje X
+          ylab = "Valores", # Etiqueta del eje Y
+          border = "black",horizontal = TRUE) # Color del borde
+  
+  # Agregar línea horizontal para la media
+  abline(v = mean(datos), col = "red", lwd = 2, lty = 2)
+}
+
+# Diagrama de caja con boxplot() horizontal
+f_diagcaja_ggplot <- function(valores, titulo) {
+  # Crear el diagrama de caja ggplot con título y subtítulo
+  # Estadísticos 
+  # Calcular el binwidth para 10 cortes
+  datos <- data.frame(x = valores)
+  
+  estadisticos <- f_estadisticos(datos$x)
+  media <- estadisticos$media
+  mediana <- estadisticos$mediana
+  maximo <- estadisticos$maximo
+  minimo <- estadisticos$minimo
+  q1 <- estadisticos$q1
+  q2 <- estadisticos$q2
+  q3 <- estadisticos$q3
+  
+  RI <- estadisticos$RI
+  
+  ds <- estadisticos$ds
+  
+  n <- estadisticos$n # Número de observaciones
+  clases <- estadisticos$clases # Número de clases según Sturges
+  
+  subtitulo = paste("Me", round(media, 2), "; Mediana", round(mediana, 2),
+                    "; ds", round(ds, 2), "; Max", round(maximo, 2), "; Min", round(minimo, 2),
+                    "; Qs", round(q1, 2), ", ", round(q2, 2), ", ", round(q3, 2),
+                    "; RI", round(RI, 2))
+  ggplot(datos, aes(x = x)) +
+    geom_boxplot(fill = "skyblue", color = "black", alpha = 0.7) + 
+    geom_vline(aes(xintercept = media, color = "Media"), linetype = "dashed", linewidth = 1) + # Línea de la media
+    
+    labs(
+      title = paste("Distribucion de ", titulo),
+      y = "Valores",
+      subtitle = subtitulo
+    ) +
+    theme_minimal()
 }
 
 
