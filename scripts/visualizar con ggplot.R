@@ -12,8 +12,9 @@ media <- mean(datos$precio)
 ds <- sd(datos$precio)
 
 ggplot(data = datos) + # Carga datos que se usarán en el grafico
-  geom_histogram(aes(x=precio)) +
+  geom_histogram(aes(x=precio, bins=30)) +
   geom_vline(xintercept = media, color = 'red') + # Linbea vertical
   geom_vline(xintercept = media-ds, color = 'blue') + # Linea vertical
   geom_vline(xintercept = media+ds, color = 'blue')  # Linea vertical
+    
     
