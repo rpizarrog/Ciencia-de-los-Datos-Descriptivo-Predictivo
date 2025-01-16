@@ -30,7 +30,7 @@ edades
 ggplot() + # Carga datos que se usarán en el grafico
   geom_boxplot(aes(x=edades))
 
-
+# Modificar los valores atipicos
 
 q1 <- quantile(edades, 0.25)
 q3 <- quantile(edades, 0.75)
@@ -44,10 +44,22 @@ RI
 l_inferior
 l_superior
 
+
 # cuáles valores son los atípicos?
 # qué hacemos con esos atípicos?
 # limpiarlos
+
 atipicos <- edades[edades < l_inferior | edades > l_superior]
 atipicos
-    
-    
+
+# Ponerles la media
+edades_limpias <- ifelse(
+  edades < l_inferior | edades > l_superior,
+  media, # Cambiar los valores atípicos a NA
+  edades
+)
+
+
+# un arreglo de la variabl edades
+ggplot() + # Carga datos que se usarán en el grafico
+  geom_boxplot(aes(x=edades_limpias))
