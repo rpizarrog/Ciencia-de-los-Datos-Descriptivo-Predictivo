@@ -267,6 +267,9 @@ f_boxplotv1v2 <- function (v1, v2, titulo, modo, color=FALSE) {
 # y les pone la media aritmética de los mismos
 f_limpiar_atipicos <- function(datos) {
   # Ponerles la media
+  media <- round(mean(datos))
+  media
+  
   q1 <- quantile(datos, 0.25)
   q3 <- quantile(datos, 0.75)
   RI<- q3 - q1
@@ -279,7 +282,7 @@ f_limpiar_atipicos <- function(datos) {
   l_superior
   
   datos_limpios <- ifelse(
-    datos < l_inferior | edades > l_superior,
+    datos < l_inferior | datos > l_superior,
     media, # Cambiar los valores atípicos a la media
     datos
   )
