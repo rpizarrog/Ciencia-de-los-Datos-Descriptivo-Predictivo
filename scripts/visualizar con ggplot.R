@@ -29,5 +29,19 @@ edades
 # un arreglo de la variabl edades
 ggplot() + # Carga datos que se usarán en el grafico
   geom_boxplot(aes(x=edades))
+
+
+
+q1 <- quantile(edades, 0.25)
+q3 <- quantile(edades, 0.75)
+RI<- q3 - q1
+RI
+l_inferior <- q1 - 1.5 * RI
+l_superior <- q3 + 1.5 * RI
+
+print ("Los Cuartiels, RI y limites")
+RI
+l_inferior
+l_superior
     
     
