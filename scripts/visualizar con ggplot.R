@@ -16,5 +16,18 @@ ggplot(data = datos) + # Carga datos que se usarán en el grafico
   geom_vline(xintercept = media, color = 'red') + # Linbea vertical
   geom_vline(xintercept = media-ds, color = 'blue') + # Linea vertical
   geom_vline(xintercept = media+ds, color = 'blue')  # Linea vertical
+
+# Jugando con edades. Simulando
+edades <- round(rnorm(n = 50, mean = 18, sd = 2))
+
+edades <- c(edades, 95, 120, 1) # incluye valores outliers atípicos
+
+edades
+
+# Visualizando boxplot con ggplot 
+# Ahora no usanmopd un data.frame sino simplemennte
+# un arreglo de la variabl edades
+ggplot() + # Carga datos que se usarán en el grafico
+  geom_boxplot(aes(x=edades))
     
     
