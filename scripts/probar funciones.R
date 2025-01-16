@@ -228,13 +228,45 @@ f_diagcaja_ggplot <- function(valores, titulo) {
 
 
 
+# función para boxplot con ggplot de un valor numérico en función de un variable categórica
+f_boxplotv1v2 <- function (v1, v2, titulo, modo, color=FALSE) {
+  datos <- data.frame(v1=v1, v2=v2)
+  
+  if (color == TRUE) {
+    color_aleatorio <- f_color_aleatorio()
+  } else{
+    color_aleatorio = "gray"
+  }
+
+  # Crear el boxplot del precio en función del tipo
+  if (modo == 'H') {
+    ggplot(datos, aes(x = v1, y = v2)) +
+      geom_boxplot(fill = color_aleatorio, color = "black", alpha = 0.7) +
+      labs(
+        title = titulo,
+        x = "valores",
+        y = "grupos"
+      ) +
+      theme_minimal()
+    
+  } else {
+    ggplot(datos, aes(x = v2, y = v1)) +
+      geom_boxplot(fill = color_aleatorio, color = "black", alpha = 0.7) +
+      labs(
+        title = titulo,
+        x = "grupo",
+        y = "valores"
+      ) +
+      theme_minimal()
+  }
+
+}
+
+
 # función que quita los datos atípicos
 # y les pone la media aritmética de los mismos
 f_limpiar_atipicos <- function(datos) {
   # Ponerles la media
-  media <- round(mean(edades))
-  media
-  
   q1 <- quantile(datos, 0.25)
   q3 <- quantile(datos, 0.75)
   RI<- q3 - q1
@@ -254,4 +286,7 @@ f_limpiar_atipicos <- function(datos) {
   
   return(datos_limpios)
 }
- 
+
+
+
+
