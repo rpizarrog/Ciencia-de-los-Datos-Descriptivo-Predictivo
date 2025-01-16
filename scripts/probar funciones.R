@@ -230,7 +230,7 @@ f_diagcaja_ggplot <- function(valores, titulo) {
 
 # función para boxplot con ggplot de un valor numérico en función de un variable categórica
 f_boxplotv1v2 <- function (v1, v2, titulo, modo, color=FALSE) {
-  
+  datos <- data.frame(v1, v2)
   if (color == TRUE) {
     color_aleatorio <- f_color_aleatorio()
   } else{
