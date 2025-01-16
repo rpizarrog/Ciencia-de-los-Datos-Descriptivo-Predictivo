@@ -27,9 +27,9 @@ f_descriptivos <- function(numeros) {
   return (summary(numeros))
 }
 
-# Genera un histograma personalizado con titulo de
-# un conjunto de datos numéricos
-f_histograma <- function (datos, titulo) {
+
+# Función que devuelve los estadísticos más populares
+f_estadisticos <- function(datos) {
   # Estadisticos con funciones específicas
   media <- mean(datos)
   mediana <- median(datos)
@@ -44,7 +44,7 @@ f_histograma <- function (datos, titulo) {
   # Visualizar los valores
   # La funcion paste() es como print() pero puedes 
   # concatenar poner varios valores en la misma instrucción, juntar elementos
-
+  
   # Nos falta la desviación estándar
   ds <- sd(datos) # sd es la función en inglçs y ds es la variable que yo pouse en espaniol
   
@@ -52,6 +52,42 @@ f_histograma <- function (datos, titulo) {
   n <- length(datos) # Número de observaciones
   clases <- ceiling(1 + log2(n)) # Número de clases según Sturges
   
+  return(list(
+    n = n,
+    clases = clases,
+    media = media,
+    mediana = mediana,
+    minimo = minimo,
+    maximo = maximo,
+    q1 = q1,
+    q2 = q2,
+    q3 = q3,
+    RI = RI,
+    ds = ds
+  ))
+}
+
+
+
+# Genera un histograma personalizado con titulo de
+# un conjunto de datos numéricos
+f_histograma <- function (datos, titulo) {
+  # Estadisticos 
+  estadisticos <- f_estadisticos(datos)
+  media <- estadisticos$media
+  mediana <- estadisticos$mediana
+  maximo <- estadisticos$maximo
+  minimo <- estadisticos$minimo
+  q1 <- estadisticos$q1
+  q2 <- estadisticos$q2
+  q3 <- estadisticos$q3
+  
+  RI <- estadisticos$RI
+  
+  ds <- estadisticos$ds
+  
+  n <- estadisticos$n # Número de observaciones
+  clases <- estadisticos$clases # Número de clases según Sturges
   
   hist(datos, breaks = clases,
        main =titulo,
@@ -68,23 +104,22 @@ f_histograma_ggplot <- function(valores, titulo) {
   # Calcular el binwidth para 10 cortes
   datos <- data.frame(columna = valores)
   
-  # Estadisticos con funciones específicas
-  media <- mean(datos$columna)
-  mediana <- median(datos$columna)
-  maximo <- max(datos$columna)
-  minimo <- min(datos$columna)
-  q1 <- quantile(datos$columna, 0.25)
-  q2 <- quantile(datos$columna, 0.50)
-  q3 <- quantile(datos$columna, 0.75)
+  # Estadisticos 
+  estadisticos <- f_estadisticos(datos$columna)
+  media <- estadisticos$media
+  mediana <- estadisticos$mediana
+  maximo <- estadisticos$maximo
+  minimo <- estadisticos$minimo
+  q1 <- estadisticos$q1
+  q2 <- estadisticos$q2
+  q3 <- estadisticos$q3
   
-  RI <- q3 - q1
+  RI <- estadisticos$RI
   
-  # Nos falta la desviación estándar
-  ds <- sd(datos$columna) # sd es la función en inglçs y ds es la variable que yo pouse en espaniol
+  ds <- estadisticos$ds
   
-  # Calcular el número de intervalos usando la fórmula de Sturges
-  n <- nrow(datos) # Número de observaciones
-  clases <- ceiling(1 + log2(n)) # Número de clases según Sturges
+  n <- estadisticos$n # Número de observaciones
+  clases <- estadisticos$clases # Número de clases según Sturges
   
   # Crear el histograma con ggplot2
   ggplot(datos, aes(x = columna)) +
@@ -109,6 +144,16 @@ f_histograma_ggplot <- function(valores, titulo) {
     ) +
     theme_minimal() # Tema limpio
 }
+
+# Diagrama de caja con boxplot() horizontal
+f_diacaja <- function() {
+  
+  # Pendiente
+  print ("Diagrama de caja")
+}
+
+
+
 
 
 
