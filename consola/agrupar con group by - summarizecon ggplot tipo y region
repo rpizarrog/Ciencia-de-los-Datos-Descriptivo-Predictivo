@@ -1,0 +1,10 @@
+# Agrupar datos de aguacate con respectgo a tipo
+datos %>%
+  group_by(tipo) %>%
+  summarise(n=n() )
+
+
+# Agrupar datos de aguacate con respectgo a region
+datos %>%
+  group_by(tipo) %>%
+  summarise(n=n() )
