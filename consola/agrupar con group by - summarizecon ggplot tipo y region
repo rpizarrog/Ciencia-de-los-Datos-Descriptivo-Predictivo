@@ -1,10 +1,12 @@
 # Agrupar datos de aguacate con respectgo a tipo
-datos %>%
+# se asigna a una tabla data frame la agrpació de datos en función al tipo
+tabla_tipo <- datos %>%
   group_by(tipo) %>%
   summarise(n=n() )
 
 
 # Agrupar datos de aguacate con respectgo a region
-datos %>%
+# se asigna a una tabla data frame la agrpació de datos en función a region
+tabla_region <- datos %>%
   group_by(tipo) %>%
   summarise(n=n() )
