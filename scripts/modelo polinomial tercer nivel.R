@@ -24,4 +24,19 @@ summary(modelo_poly3)
 # Visualizar curva
 f_polinomial_curva(datos_entrenamiento, nivel)
 
+# Hacer predicciones con el modelo
+predicciones <- predict(modelo_poly3, datos_validacion)
+predicciones
+
+datos_comparar <- data.frame(reales = datos_validacion$peso, predicciones_poly3 = predicciones) 
+datos_comparar
+
+# Cálculo manual del RMSE
+rmse <- sqrt(mean((datos_comparar$reales - datos_comparar$predicciones_poly3)^2))
+# Imprimir resultado
+paste ("RMSE:", rmse)
+
+
+
+print ("comparado con otros modelos, ¿cuál es más eficiente conforme al estadístico RMSE ?")
 
