@@ -1,0 +1,11 @@
+Rendimiento_Frijol,Tipo_Suelo,Precipitacion_mm,Fertilizacion_kg,Temperatura_Promedio_C,Variedad_Frijol
+1500,Arenoso,300,50,20,Negro
+1600,Arcilloso,350,55,22,Pinto
+1700,Limoso,400,60,24,Negro
+1650,Arenoso,320,52,21,Pinto
+1550,Limoso,330,54,20,Negro
+1800,Arcilloso,370,58,23,Pinto
+1750,Arenoso,360,56,22,Negro
+1600,Arcilloso,310,53,21,Pinto
+1500,Limoso,300,50,20,Negro
+1850,Arenoso,380,59,25,Pinto
