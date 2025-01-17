@@ -116,5 +116,17 @@ f_linea_tendencia_reg_lineal <- function(datos, modelo) {
     ggtitle("Linea de tendencia sobre Conjunto de Datos")
 }
 
+f_polinomial_curva <- function(datos, nivel) {
+  ggplot(datos, aes(x = estatura, y = peso)) +
+    geom_point(color = "blue", alpha = 0.7) + # Puntos originales
+    stat_smooth(method = "lm", formula = y ~ poly(x, nivel, raw = TRUE), color = "red") + # Línea del modelo
+    labs(
+      title = paste("Modelo Polinómico de Grado ", nivel),
+      x = "Estatura (cm)",
+      y = "Peso (kg)"
+    ) +
+    theme_minimal()
+}
+
 
 
