@@ -1,9 +1,9 @@
 # Librerías: 
 library(dplyr)
-library(mosaic)
+# library(mosaic)
 library(ggplot2)  # Para gráficos
-library(cowplot) #Imágenes en el mismo renglón
-library("visualize")
+# library(cowplot) #Imágenes en el mismo renglón
+# library("visualize")
 
 options(scipen=999) # Notación normal
 
